@@ -24,10 +24,9 @@ public class Food <SpiceType extends Class<? extends Spice>> {
     public void applySpice(Spice spice) {
         if(!spices.contains(spice))
             spices.add(spice);
-
-//        if(spiceCount.containsKey(spice))
-//            spiceCount.replace(spice, spiceCount.get(spice) + 1);
-//        else
-//            spiceCount.put(spice, 1);
+        if(spiceCount.containsKey((SpiceType) spice.getClass()))
+            spiceCount.replace((SpiceType) spice.getClass(), spiceCount.get((SpiceType) spice.getClass()) + 1);
+        else
+            spiceCount.put((SpiceType) spice.getClass(), 1);
     }
 }
